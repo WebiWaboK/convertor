@@ -5,11 +5,22 @@ html(lang="en")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         link(rel="stylesheet", href="../syles/index.scss")
         title login
-    body 
-        h1 Logeate papu!!!
-        nav 
-            ul 
-                li 
-                    a(href="/") Inicio 
-                li 
-                    a(href="#") Historial 
+body
+    h1 Logeate papu!!!
+    nav
+        ul
+            li
+                a(href="/") Inicio
+            li
+                a(href="#") Historial
+    form(action="/login", method="post")
+        p
+            label(for="username") Nombre:    
+            input(type="text", id="username", name="username")
+        p
+            label(for="password") Contraseña:
+            input(type="password", id="password", name="password")
+        p
+            label(for="correo") Correo:      
+            input(type="text", id="correp", name="correo")
+        button (type="submit") Iniciar Sesion
