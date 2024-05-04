@@ -4,24 +4,24 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         link(rel="stylesheet", href="../syles/index.scss")
-        script src="loginController.js"
+        script(src="loginController.js")
         title login
-body
-    h1 Logeate papu!!!
-    nav
-        ul
-            li
-                a(href="/") Inicio
-            li
-                a(href="#") Historial
-    form(action="/login", method="post")
-        p
-            label(for="username") Nombre:    
-            input(type="text", id="username", name="username")
-        p
-            label(for="password") Contraseña:
-            input(type="password", id="password", name="password")
-        p
-            label(for="correo") Correo:      
-            input(type="text", id="correp", name="correo")
-        button(type="submit") Iniciar Sesión
+    body
+        h1 Logeate papu!!!
+        nav
+            ul
+                li
+                    a(href="/") Inicio
+                li
+                    a(href="#") Historial
+        form(action="/login", method="post")
+            p
+                label(for="usuario") Usuario:    
+                input(type="text", id="usuario", name="usuario")
+            p
+                label(for="contraseña_hash") Contraseña:
+                input(type="password", id="contraseña_hash", name="contraseña_hash")
+            p
+                label(for="correo") Correo:      
+                input(type="text", id="correo", name="correo")
+            button(type="submit") Iniciar Sesión

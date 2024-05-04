@@ -6,6 +6,8 @@ const LocalStrategy = require('passport-local').Strategy;
 
 const app = express();
 
+app.use(bodyParser.urlencoded({ extended: true }));
+
 app.set('view engine', 'pug');
 
 app.use(express.static(path.join(__dirname, 'views')));
@@ -16,11 +18,13 @@ app.get('/', (req, res) => {
 
 app.get('/login', (req, res) => {
     res.render('login');
-})
-
-app.post('/login', (req, res) => {
-  res.render('login');
 });
+
+// Importar el controlador de inicio de sesión
+const loginController = require('./controllers/loginController');
+
+// Utilizar el controlador para manejar la lógica de inicio de sesión en la ruta POST /login
+app.post('/login', loginController);
 
 app.listen(3000, () => {
     console.log('Servidor corriendo en el puerto 3000 http://localhost:3000/');

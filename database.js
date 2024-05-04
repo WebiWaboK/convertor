@@ -9,7 +9,7 @@ dotenv.config();
 const pool = mysql2.createPool({
     host: "localhost",
     user: "root",
-    password: "power2077lol%",
+    password: "root",
     database: "convertidor",
     port: "3306",
     waitForConnections: true,
@@ -37,9 +37,30 @@ async function verificarConexion() {
     }
 }
 
+// Función para ejecutar consultas en la base de datos
+async function queryDatabase(sql, params) {
+    try {
+        // Obtener una conexión del pool
+        const connection = await obtenerConexion();
+        
+        // Ejecutar la consulta SQL con los parámetros proporcionados
+        const [rows, fields] = await connection.execute(sql, params);
+        
+        // Liberar la conexión
+        connection.release();
+        
+        // Retornar los resultados de la consulta
+        return rows;
+    } catch (error) {
+        console.error('Error al ejecutar la consulta:', error.message);
+        throw error;
+    }
+}
+
 module.exports = {
     obtenerConexion,
-    verificarConexion
+    verificarConexion,
+    queryDatabase
 };
 
 console.log('Comprobando la conexión a la base de datos...');
@@ -54,9 +75,3 @@ verificarConexion().then((conexionExitosa) => {
 }).catch((error) => {
     console.error('Error al verificar la conexión a la base de datos:', error);
 });
-
-console.log('Conexión establecida a la base de datos:');
-console.log('Host:', process.env.MYSQL_HOST);
-console.log('Usuario:', process.env.MYSQL_USER);
-console.log('Base de datos:', process.env.MYSQL_DATABASE);
-console.log('Puerto:', process.env.MYSQL_PORT);
