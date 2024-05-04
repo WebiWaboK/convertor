@@ -19,6 +19,5 @@ app.get('/login', (req, res) => {
 })
 
 app.listen(3000, () => {
-    console.log('Servidor corriendo en el puerto 3000');
-    console.log('Para entrar, visita: http://localhost:3000/');
+    console.log('Servidor corriendo en el puerto 3000 http://localhost:3000/');
 });
