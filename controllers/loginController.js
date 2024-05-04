@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { queryDatabase } = require('./database/database.js');
+const { queryDatabase } = require('./database.js');
 
 router.post('login', (req, res) => {
     const { usuario, contraseña_hash, correo } = req.body;
