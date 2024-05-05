@@ -27,7 +27,7 @@ console.log("sonso");
         }
     });
 
-res.redirect('/');
+res.redirect('inicio');
 
 });
 

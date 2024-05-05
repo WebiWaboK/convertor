@@ -20,6 +20,10 @@ app.get('/login', (req, res) => {
     res.render('login');
 });
 
+app.get('/inicio', (req,res) => {
+    res.render('inicio');
+})
+
 // Importar el controlador de inicio de sesión
 const loginController = require('./controllers/loginController');
 
