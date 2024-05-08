@@ -8,7 +8,7 @@ router.post('/login', (req, res) => {
     const { usuario, contraseña_hash, correo } = req.body;
 
     // Construir la consulta SQL para insertar los datos del usuario en la base de datos
-    const sql = 'INSERT INTO usuarios (usuario, pass_hash, correo) VALUES (?, ?, ?)';
+    const sql = 'INSERT INTO usuarios (usuario, contraseña_hash, correo) VALUES (?, ?, ?)';
     const params = [usuario, contraseña_hash, correo];
 
 console.log("sonso");

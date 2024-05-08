@@ -3,7 +3,20 @@ html(lang="en")
     head
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        link(rel="stylesheet", href="../syles/index.scss")
+        link(rel="stylesheet", href="../styles/index.scss")
+        script.
+            function mostrarOcultarContraseña() {
+                var contraseñaInput = document.getElementById("contraseña_hash");
+                var boton = document.getElementById("mostrarOcultar");
+              
+                if (contraseñaInput.type === "password") {
+                  contraseñaInput.type = "text";
+                  boton.textContent = "Ocultar Contraseña";
+                } else {
+                  contraseñaInput.type = "password";
+                  boton.textContent = "Mostrar Contraseña";
+                }
+            }
         script(src="loginController.js")
         title login
     body
@@ -21,7 +34,8 @@ html(lang="en")
             p
                 label(for="contraseña_hash") Contraseña:
                 input(type="password", id="contraseña_hash", name="contraseña_hash")
+                button(type="button", id="mostrarOcultar", onclick="mostrarOcultarContraseña()") Mostrar/Ocultar Contraseña
             p
                 label(for="correo") Correo:      
                 input(type="text", id="correo", name="correo")
-            button(type="submit") Retgistrar
+            button(type="submit") Registrar
