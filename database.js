@@ -10,7 +10,7 @@ const pool = mysql2.createPool({
     host: "localhost",
     user: "root",
     password: "root",
-    database: "converter",
+    database: "convertidor",
     port: "3306",
     waitForConnections: true,
     connectionLimit: 10,
