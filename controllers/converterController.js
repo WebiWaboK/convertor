@@ -5,7 +5,7 @@ const sharp = require('sharp');
 function convertImage(req, res) {
   const inputPath = req.file.path;
   const outputFormat = req.body.outputFormat || 'jpeg'; // Formato de salida predeterminado es JPEG
-  const outputPath = 'public/output.jpg'; // Ruta de salida de la imagen
+  const outputPath = `public/output.${outputFormat}`; // Ruta de salida de la imagen
 
   // Utilizamos Sharp para realizar la conversión de la imagen
   sharp(inputPath)
