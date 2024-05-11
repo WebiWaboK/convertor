@@ -1,15 +1,45 @@
 doctype html
 html(lang="en")
-    head
-        meta(charset="UTF-8")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        link(rel='stylesheet', href='/css/styles.css')
-        title Document
-    body 
-        h1 CONVERTIDOR
-        nav 
-            ul 
-                li 
-                    a(href="/login") Registrarse 
-                li 
-                    a(href="#") Historial 
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel='stylesheet', href='/css/styles.css')
+    title Document
+  body 
+    h1 CONVERTIDOR
+    nav 
+      ul 
+        li 
+          a(href="/login") Registrarse 
+        li 
+          a(href="#") Historial 
+
+  block content
+    h1 Image Converter
+    form(action='/convert', method='post', enctype='multipart/form-data')
+      input(type='file', name='inputImage', id='inputImage', accept='image/*')
+      select(name='outputFormat', id='outputFormat')
+        if inputImage && inputImage.endsWith('.jpeg') || inputImage && inputImage.endsWith('.jpg')
+          option(value='png') PNG
+          option(value='webp') WEBP
+        else if inputImage && inputImage.endsWith('.png')
+          option(value='jpeg') JPEG
+          option(value='webp') WEBP
+        else
+          option(value='jpeg') JPEG
+          option(value='png') PNG
+          option(value='webp') WEBP
+        //- Agrega más opciones según los formatos que desees admitir
+      button(type='submit') Convertir
+    #outputImageContainer
+      img(id='outputImage', style='display: none;')
+      //- Agregar un cuadro para mostrar la imagen seleccionada
+      .image-container
+        img(id='selectedImage', src='', alt='Selected Image')
+
+  script.
+    document.getElementById('inputImage').addEventListener('change', function(event) {
+      const selectedImage = document.getElementById('selectedImage');
+      selectedImage.src = URL.createObjectURL(event.target.files[0]);
+      selectedImage.style.display = 'block';
+    });
