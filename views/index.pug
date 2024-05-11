@@ -3,17 +3,17 @@ html(lang="en")
   head
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    link(rel='stylesheet', href='/css/styles.css')
+    //link(rel='stylesheet', href='/css/styles.css')
     title Document
   body 
-    h1 CONVERTIDOR
     nav 
       ul 
         li 
           a(href="/login") Registrarse 
         li 
-          a(href="#") Historial 
+          a(href="/historial") Historial 
 
+    h1 CONVERTIDOR
   block content
     h1 Image Converter
     form(action='/convert', method='post', enctype='multipart/form-data')

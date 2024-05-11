@@ -20,6 +20,10 @@ app.get('/', (req, res) => {
   res.render('index', { inputImage: req.file ? req.file.originalname : null });
 });
 
+app.get('/historial', (req, res) => {
+  res.render('historial');
+});
+
 // Ruta para manejar la solicitud POST de conversión de imágenes
 app.post('/convert', upload.single('inputImage'), converterController.convertImage);
 

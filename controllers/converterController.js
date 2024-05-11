@@ -16,6 +16,7 @@ function convertImage(req, res) {
         res.status(500).send('Error al convertir la imagen.');
       } else {
         console.log('Imagen convertida con éxito:', info);
+        res.render('historial', { convertedFileName: `output.${outputFormat}` });
         // Enviar el archivo de imagen convertida para descargar
         res.download(outputPath);
       }
