@@ -1,9 +1,11 @@
-const express = require('express');
+//server.js
 
+const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const multer = require('multer');
 const converterController = require('./controllers/converterController');
+const sharp = require('sharp');
 
 const app = express();
 const port = 3000;
@@ -16,7 +18,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Configurar middlewares
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'pug');
-app.use(express.static(path.join(__dirname, 'public')));
 
 // Ruta principal para renderizar el formulario de conversión de imágenes
 app.get('/', (req, res) => {
@@ -31,5 +32,5 @@ app.get('/historial', (req, res) => {
 app.post('/convert', upload.single('inputImage'), converterController.convertImage);
 
 app.listen(3000, () => {
-    console.log('Servidor corriendo en el puerto 3000 http://localhost:3000/');
+  console.log('Servidor corriendo en el puerto 3000 http://localhost:3000/');
 });
