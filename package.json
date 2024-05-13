@@ -24,7 +24,7 @@
   "scripts": {
     "start": "npm-run-all --parallel sass-watch start-server",
     "start-server": "nodemon server.js",
-    "sass": "styles/:public/css/styles.css",
+    "sass": "styles/:public/css/style.css",
     "sass-watch": "sass --watch styles/:public/css/style.css"
   }
 }

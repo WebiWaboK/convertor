@@ -1,4 +1,5 @@
 const express = require('express');
+
 const bodyParser = require('body-parser');
 const path = require('path');
 const multer = require('multer');
@@ -9,6 +10,8 @@ const port = 3000;
 
 // Configurar Multer para manejar la carga de archivos
 const upload = multer({ dest: 'uploads/' });
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Configurar middlewares
 app.use(bodyParser.urlencoded({ extended: true }));
