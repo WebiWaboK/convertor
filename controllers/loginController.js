@@ -11,8 +11,6 @@ router.post('/login', (req, res) => {
     const sql = 'INSERT INTO usuarios (usuario, contraseña_hash, correo) VALUES (?, ?, ?)';
     const params = [usuario, contraseña_hash, correo];
 
-console.log("sonso");
-
     // Ejecutar la consulta en la base de datos
     queryDatabase(sql, params, (error, results) => {
         if (error) {
@@ -23,12 +21,9 @@ console.log("sonso");
             // Si la inserción es exitosa, enviar una respuesta de éxito
             console.log('Usuario registrado exitosamente:', results);
             res.status(200).send('¡Usuario registrado exitosamente!');
-            
+            res.redirect('/'); // Redirigir después de enviar la respuesta
         }
     });
-
-res.redirect('inicio');
-
 });
 
 module.exports = router;

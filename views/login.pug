@@ -3,7 +3,7 @@ html(lang="en")
     head
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        link(rel="stylesheet", href="../styles/index.scss")
+        link(rel='stylesheet', href='/css/style.css')
         script.
             function mostrarOcultarContraseña() {
                 var contraseñaInput = document.getElementById("contraseña_hash");
@@ -20,13 +20,13 @@ html(lang="en")
         script(src="loginController.js")
         title login
     body
-        h1 Logeate papu!!!
         nav
             ul
                 li
                     a(href="/") Inicio
                 li
                     a(href="#") Historial
+        h1 Logeate papu!!!
         form(action="/login", method="post")
             p
                 label(for="usuario") Usuario:    

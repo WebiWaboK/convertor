@@ -28,6 +28,10 @@ app.get('/historial', (req, res) => {
   res.render('historial');
 });
 
+app.get('/login', (req, res) => {
+  res.render('login');
+});
+
 // Ruta para manejar la solicitud POST de conversión de imágenes
 app.post('/convert', upload.single('inputImage'), converterController.convertImage);
 
