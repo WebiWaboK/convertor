@@ -4,7 +4,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const multer = require('multer');
-const converterController = require('./controllers/converterController');
 const sharp = require('sharp');
 
 const app = express();
@@ -23,18 +22,6 @@ app.set('view engine', 'pug');
 app.get('/', (req, res) => {
   res.render('index', { inputImage: req.file ? req.file.originalname : null });
 });
-
-app.get('/historial', (req, res) => {
-  res.render('historial');
-});
-
-app.get('/login', (req, res) => {
-  res.render('login');
-});
-
-// Ruta para manejar la solicitud POST de conversión de imágenes
-app.post('/convert', upload.single('inputImage'), converterController.convertImage);
-
 app.listen(3000, () => {
   console.log('Servidor corriendo en el puerto 3000 http://localhost:3000/');
 });
